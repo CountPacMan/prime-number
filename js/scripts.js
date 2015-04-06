@@ -8,11 +8,11 @@ function getPrimes(number) {
   // remove all multiples of known primes by iterating through starting at 2
   var primes_length = primes.length;
   console.log("pl = " + primes_length);
-  for (var i = 2; i <= number && i < primes.length; i++) {
+  for (var i = 2; i < primes.length; i++) {
     console.log("i = " + i + ", j = " + j);
     var j = 1;
     while (j < primes.length) {
-      if (primes[j] % i === 0) {
+      if (primes[j] != i && primes[j] % i === 0) {
         console.log("i = " + i + ", j = " + j);
         console.log("will be del " + primes[j]);
         primes.splice(j, 1);
