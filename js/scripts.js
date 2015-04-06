@@ -20,10 +20,22 @@ function getPrimes(number) {
   return primes;
 }
 
+
 jQuery(document).ready(function() {
   $("#prime-number").submit(function(event) {
     $("#error").empty();
 
+    if($("#number").val().search(/[^0-9]/) !== -1) {
+      $("#error").prepend("<p>Only integers are valid</p>");
+      $("#result").hide();
+    } else {
+      var number = parseInt($("#number").val());
+      var prime_array = getPrimes(number);
+      var primes_string = prime_array.join(", ");
+
+      $("#numbers").text(primes_string);
+      $("#result").show();
+    }
     event.preventDefault();
   });
 });
